@@ -1,4 +1,8 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require('webpack');
+
 module.exports = {
     entry: './src/index.js',
     module: {
@@ -8,9 +12,16 @@ module.exports = {
     devServer: {
         contentBase: './dist'
     },
-    plugins: require('./script/plugin'),
+    plugins: [
+        new CleanWebpackPlugin(['dist']),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, "src", "index.html")
+        })
+    ],
     output: {
-        filename: 'bundle.js',
+        filename: 'bundle.[hash].js',
         path: path.resolve(__dirname, 'dist')
     },
 };

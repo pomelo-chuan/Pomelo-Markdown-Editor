@@ -1,5 +1,6 @@
 import join from 'lodash/join';
 import printMe from './print.js';
+require('./index.scss');
 
 function component() {
     const element = document.createElement('div');
