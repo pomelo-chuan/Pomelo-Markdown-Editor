@@ -8,7 +8,7 @@ module.exports = {
     module: {
         rules: require('./script/loader')
     },
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
     devServer: {
         contentBase: './dist'
     },
