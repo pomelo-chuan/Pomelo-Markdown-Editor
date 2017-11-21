@@ -1,3 +1,5 @@
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = [{
         test: /\.css$/,
         use: [
@@ -14,11 +16,15 @@ module.exports = [{
     {
         test: /\.scss$/,
         use: [{
-            loader: "style-loader"
-        }, {
-            loader: "css-loader"
-        }, {
-            loader: "sass-loader"
+            loader: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: "css-loader"
+            })
         }]
+    },
+    {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
     }
 ];
