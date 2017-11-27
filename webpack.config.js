@@ -42,6 +42,8 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     externals: {
-        marked: 'marked'
+        marked: 'marked',
+        React: 'React',
+        ReactDOM: 'ReactDOM'
     },
 };
