@@ -1,7 +1,7 @@
 require('./style/markdown.scss');
 require('./style/index.scss');
 import marked from 'marked';
-// import debounce from 'lodash/debounce';
+import debounce from 'lodash/debounce';
 
 if (window.localStorage && window.localStorage.markdownDate) {
     const data = window.localStorage.markdownDate;
